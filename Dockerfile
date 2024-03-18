@@ -8,6 +8,6 @@ WORKDIR /app
 COPY HelloWorld.java pom.xml ./
 
 # Compile the Java source code into a class file
-RUN javac HelloWorld.java
+RUN mvn package
 
 
