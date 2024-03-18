@@ -11,7 +11,7 @@ COPY HelloWorld.java pom.xml ./
 RUN javac HelloWorld.java
 
 # Package the Java application into a JAR file
-RUN mvn package
+RUN  package
 
 # Use a smaller base image for the runtime environment
 FROM adoptopenjdk/openjdk11:alpine-jre
