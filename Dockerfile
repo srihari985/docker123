@@ -2,7 +2,7 @@
 FROM maven:3.8.1-openjdk-11-slim AS build
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /workspace
 
 # Copy the Java source code and pom.xml into the container
 COPY HelloWorld.java pom.xml ./
@@ -14,7 +14,7 @@ RUN mvn package
 FROM adoptopenjdk/openjdk11:alpine-jre
 
 # Set the working directory in the final image
-WORKDIR /app
+WORKDIR /workspace
 
 # Copy the compiled JAR file from the build stage to the final image
 COPY --from=build /app/target/HelloWorld-1.0-SNAPSHOT.jar /app/target/HelloWorld.jar
