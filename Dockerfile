@@ -17,7 +17,7 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /workspace
 
 # Copy the compiled JAR file from the build stage to the final image
-COPY --from=build /app/target/HelloWorld-1.0-SNAPSHOT.jar /app/target/HelloWorld.jar
+COPY --from=build /workspace/target/HelloWorld-1.0-SNAPSHOT.jar /app/target/HelloWorld.jar
 
 # Specify the command to run on container startup
 CMD ["java", "-jar", "HelloWorld.jar"]
